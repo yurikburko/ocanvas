@@ -28,9 +28,9 @@ source_dir = path.join(__dirname, /^source_dir = (.*)$/m.exec(config)[1]);
 output_dir = path.join(__dirname, isRelease ? 'dist' : 'dev');
 output_full = path.join(output_dir, /^output_full = (.*)$/m.exec(config)[1].replace("{version}", version));
 output_min = path.join(output_dir, /^output_min = (.*)$/m.exec(config)[1].replace("{version}", version));
-head = /head\s-----\s([\s\S]*?)-----\s/g.exec(config)[1].replace("{version}", version).replace("{year}", "2011-" + (new Date()).getFullYear());
-filenames = /files\s-----\s([\s\S]*?)\s-----/g.exec(config)[1].split(/\s/);
-foot = /foot\s-----\s([\s\S]*?)\s-----/g.exec(config)[1].split(/\s/);
+head = /head\s+-----\s+([\s\S]*?)-----\s+/g.exec(config)[1].replace("{version}", version).replace("{year}", "2011-" + (new Date()).getFullYear());
+filenames = /files\s+-----\s+([\s\S]*?)\s+-----/g.exec(config)[1].split(/\s+/);
+foot = /foot\s+-----\s+([\s\S]*?)\s+-----/g.exec(config)[1].split(/\s+/);
 numFiles = filenames.length;
 filenames = filenames.concat(foot);
 
